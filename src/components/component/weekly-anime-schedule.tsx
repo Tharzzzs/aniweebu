@@ -72,6 +72,18 @@ export function WeeklyAnimeSchedule() {
     return hours * 60 + minutes
   }
 
+  const getOrderedDays = () => {
+    const todayIndex = currentDate.getDay()
+    const orderedDays = [...daysOfWeek.slice(todayIndex), ...daysOfWeek.slice(0, todayIndex)]
+    return orderedDays
+  }
+
+  const getDateForDay = (offset: number) => {
+    const newDate = new Date(currentDate)
+    newDate.setDate(currentDate.getDate() + offset)
+    return newDate
+  }
+
   return (
     <div className="bg-gray-900 text-white p-4 max-w-4xl mx-auto">
       <div className="flex items-center justify-between mb-4">
@@ -79,8 +91,8 @@ export function WeeklyAnimeSchedule() {
           <ChevronLeft className="w-6 h-6" />
         </button>
         <div className="flex space-x-2 overflow-x-auto">
-          {daysOfWeek.map((day, index) => {
-            const date = new Date(currentDate.getTime() - currentDate.getDay() * 24 * 60 * 60 * 1000 + index * 24 * 60 * 60 * 1000)
+          {getOrderedDays().map((day, index) => {
+            const date = getDateForDay(index)
             const isCurrentDay = date.toDateString() === currentDate.toDateString()
             return (
               <button
