@@ -13,7 +13,7 @@ export function MainPage() {
     <div className="min-h-screen bg-black text-white">
       <header className="flex items-center justify-between p-4">
         <div className="flex items-center space-x-4">
-          <img src="/placeholder.svg" alt="Logo" className="h-8" />
+          <img src="/logo.png" alt="Logo" className="h-8" />
           <div className="relative">
             <input
               type="text"
@@ -33,7 +33,7 @@ export function MainPage() {
           <BellIcon className="h-6 w-6 text-white" />
           <Avatar>
             <AvatarImage src="/placeholder-user.jpg" alt="User Avatar" />
-            <AvatarFallback>U</AvatarFallback>
+            <AvatarFallback>JV</AvatarFallback>
           </Avatar>
         </nav>
       </header>
